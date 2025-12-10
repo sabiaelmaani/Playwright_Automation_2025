@@ -28,3 +28,4 @@ test('Capture results for multiple car searches on bing', async ({ page }) => {
         
     }//end of for loop
 });//end of test
+//end of file
