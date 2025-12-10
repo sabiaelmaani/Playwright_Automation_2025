@@ -12,6 +12,7 @@ test('search for playwrite on bing', async () => {
     await page.waitForTimeout(2000);
     await type(page, '[name="q"]', 'playwright', 'search field');
     await page.keyboard.press('Enter');
+    await page.waitForTimeout(5000);
 
 });
 
