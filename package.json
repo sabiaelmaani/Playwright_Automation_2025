@@ -13,7 +13,7 @@
     "uspsParallelCB": "npx playwright test src/test/Day3_120225/T1_USPS_Multiple_Tests.spec.ts --headed --workers=4 --project=chromium --project=safari --reporter=html",
     "reviewBingTest": "npx playwright test src/test/Review_120425/RT1_BingSearchLoop.spec.ts --headed --workers=1 --project=chromium --reporter=html",
     "weightWatchersLoop": "npx playwright test src/test/Action_Items/WeightWatchersLoop.spec.ts --headed --workers=1 --project=chromium --project=safari --project=firefox --reporter=html",
-    "bingReusable": "npx playwright test src/test/Day4_120825/T1_bing_search_reusable.spec.ts --headed --workers=1 --project=chromium --reporter=html"
+    "bingReusable": "npx playwright test src/test/Day4_120825/T1_bing_search_reusable.spec.ts --workers=1 --project=chromium --reporter=html"
 
   },
   "keywords": [],
