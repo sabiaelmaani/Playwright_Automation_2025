@@ -12,7 +12,7 @@ test('capture workshop schedules for 3 different zip codes', async ({ page }) =>
     let zip: string[] = []
     zip.push('11218')
     zip.push('25403')
-    zip.push('11226')
+    zip.push('07306')
     
     for (let i = 0; i < zip.length; i++) {
         //navigate to weight watchers
@@ -23,14 +23,9 @@ test('capture workshop schedules for 3 different zip codes', async ({ page }) =>
 
         //wait for 2 seconds
         await page.waitForTimeout(2000)
-        
 
         //enter zip code in search field
         await page.locator('[id="location-search"]').fill(zip[i])
-
-
-        //wait for 2 seconds
-        await page.waitForTimeout(2000)
 
         //click on the search arrow button
         await page.locator('[id="location-search-cta"]').click()
@@ -39,13 +34,11 @@ test('capture workshop schedules for 3 different zip codes', async ({ page }) =>
         await page.waitForTimeout(2000)
 
         //scroll down to the first studio result
-        await page.locator('[id="location-2001880"]').scrollIntoViewIfNeeded()
-        
-        //wait for 2 seconds
-        await page.waitForTimeout(2000)
+        await page.locator('[class="wrapperLink-rmsRn"]').nth(0).scrollIntoViewIfNeeded()
+
 
         //click on the first studio link
-        await page.locator('[id="location-2001880"]').click()
+        await page.locator('[class="wrapperLink-rmsRn"]').nth(0).click()
 
         //wait for 2 seconds
         await page.waitForTimeout(2000)
@@ -53,6 +46,9 @@ test('capture workshop schedules for 3 different zip codes', async ({ page }) =>
         //capture the entire address and print it
         let address = await page.locator('[class="address-FnT8k"]').textContent()
         console.log('studio in ' + zip[i] + ': ' + address)
+        //print an extra blank line
+        console.log('\n')
+
         //wait for 3 seconds
         await page.waitForTimeout(3000)
 
@@ -65,6 +61,10 @@ test('capture workshop schedules for 3 different zip codes', async ({ page }) =>
         let Schedule = await page.locator('[class="scheduleContainerMobile-ps6Rm"]').textContent()
         console.log('The upcoming schedule in ' + zip[i] + ':\n' + Schedule)
         
+        //print an extra blank line before next iteration   
+        console.log('\n')
+        console.log('----------------------------------------')
+        console.log('\n')
     }//end of for loop
 
 
