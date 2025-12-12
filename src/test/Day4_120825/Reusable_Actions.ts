@@ -32,14 +32,14 @@ export async function typeByIndex(page: Page, locator: string, index: number, us
 //method to get text from any unique element 
 export async function getText(page: Page, locator: string, elementName: string) {
     console.log('Getting text from ' + elementName);
-    let result = await page.locator(locator).textContent();
+    let result = await page.locator(locator).innerText();
     return result;
 }//end of getText method
 
 //method to get text from any element by index
 export async function getTextByIndex(page: Page, locator: string, index: number, elementName: string) {
     console.log('Getting text from ' + elementName);
-    let result = await page.locator(locator).nth(index).textContent();
+    let result = await page.locator(locator).nth(index).innerText();
     return result;
 }//end of getTextByIndex method
 
