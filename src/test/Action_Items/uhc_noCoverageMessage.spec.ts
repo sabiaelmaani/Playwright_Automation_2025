@@ -13,7 +13,9 @@ test('capture no coverage message @ai', async ({page}) => {
     //click on find your plan options
     await click(page, "[aria-label='Find your plan options ']", 'find your plan options button')
 
-
+    //wait for 2 seconds
+    await page.waitForTimeout(2000);
+    
     //validate no coverage available message appears
     //capture the message 
     let expectedMessage = "UnitedHealthcare Individual & Family ACA plans are not available in your area."
