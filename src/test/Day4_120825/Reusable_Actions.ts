@@ -74,4 +74,25 @@ export async function selectOptionByValue(page: Page, locator: string, value: st
     await dropdown.selectOption({ value: value });
 }//end of selectOptionByValue method
 
-//method to select option by 
+//method to select option by value from dropdown for any element by index
+export async function selectOptionByIndex(page: Page, locator: string, index: number, value: string, elementName: string) {
+    console.log('Selecting ' + value + ' from ' + elementName);
+    let dropdown = page.locator(locator).nth(index);
+    await dropdown.selectOption({ value: value });
+}//end of selectOptionByIndex method
+
+//method to scroll by pixel
+export async function scrollByPixel(page: Page, pixelX: number, pixelY: number){
+    console.log('Scrolling by pixels on ');
+    await page.mouse.wheel(pixelX, pixelY); 
+}//end of scrollByPixel method
+
+export async function tabByClick(page: Page, locator: string, elementName: string) {
+    console.log("Clicking on " + elementName + " and waiting for new tab");
+    const [newPage] = await Promise.all([
+        page.context().waitForEvent('page'),
+        page.locator(locator).click()
+    ]);
+    await newPage.waitForLoadState();
+    return newPage;
+}//end of tabByClick method

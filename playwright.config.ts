@@ -33,7 +33,8 @@ export default defineConfig({
     trace: 'on-first-retry',
     //action timeout
     actionTimeout: 15000, //your wait until 
-    screenshot: 'only-on-failure'
+    screenshot: 'only-on-failure',
+    video: 'on', 
   },
 
   /* Configure projects for major browsers */

@@ -1,4 +1,5 @@
 import { Page, test } from '@playwright/test';
+import { scrollByPixel } from '../Day4_120825/Reusable_Actions';
 
 //initialize page variable for browser
 let page: Page
@@ -13,6 +14,10 @@ test.beforeAll(async ({ browser }) => {
 test('Search for a keyword on bing @smoke', async () => {
     //navigate to bing
     await page.goto('https://www.bing.com/')
+
+    await page.waitForTimeout(2000) //wait for few seconds
+    await scrollByPixel(page, 0, 500,) //scroll down by pixel
+    await page.waitForTimeout(2000) //wait for few seconds
     //type a keyword in the search box
     await page.locator('[name="q"]').fill('Playwright Testing')
     await page.waitForTimeout(2000) //wait for a few seconds
@@ -23,6 +28,14 @@ test('Search for a keyword on bing @smoke', async () => {
 })//end of test 1
 
 test('Capture search number', async () => {
+    await page.waitForTimeout(2000) //wait for few seconds for the next step
+    //scroll by pixel
+    //await scrollByPixel(page, 500, 'y')
+
+    
+
+    //wait for few seconds
+    await page.waitForTimeout(2000)
     //capture search results text 
     let searchResults = await page.locator('[class="sb_count"]').textContent()
     //for concatenation purpose, you either can use comma , or +

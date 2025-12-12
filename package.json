@@ -13,8 +13,10 @@
     "uspsParallelCB": "npx playwright test src/test/Day3_120225/T1_USPS_Multiple_Tests.spec.ts --headed --workers=4 --project=chromium --project=safari --reporter=html",
     "reviewBingTest": "npx playwright test src/test/Review_120425/RT1_BingSearchLoop.spec.ts --headed --workers=1 --project=chromium --reporter=html",
     "weightWatchersLoop": "npx playwright test src/test/Action_Items/WeightWatchersLoop.spec.ts --headed --workers=1 --project=chromium --project=safari --project=firefox --reporter=html",
-    "bingReusable": "npx playwright test src/test/Day4_120825/T1_bing_search_reusable.spec.ts --workers=1 --project=chromium --reporter=html"
-
+    "bingReusable": "npx playwright test src/test/Day4_120825/T1_bing_search_reusable.spec.ts --workers=1 --project=chromium --reporter=html",
+    "uspsCartReusable": "npx playwright test src/test/Action_Items/usps_capture_cart.spec.ts --headed --workers=1 --project=safari --reporter=html",
+    "uhcNoCoverage": "npx playwright test src/test/Action_Items/uhc_noCoverageMessage.spec.ts --headed --workers=1 --project=chromium --reporter=html",
+    "actionItemSuite": "npx playwright test --grep @ai src/test/Action_Items/* --workers=1 --project=chromium --reporter=html"
   },
   "keywords": [],
   "author": "",
